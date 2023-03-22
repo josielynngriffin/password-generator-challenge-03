@@ -18,15 +18,24 @@ console.log(lowerCase);
 console.log(upperCase);
 console.log(numbers);
 
+let passwordOptions = [];
+let password = [];
 //function to generate password
 function generatePassword() {
+  let characterLength = prompt("How many characters will your password be?")
 //password prompts: how many characters? valid =<8,>=128
 //if => 8 || (or) x> 128, valid, ifNaN invalid
 // 128 < x or x < 8 >>> alert, please select a password length between 8 and 128 characters
+  if (characterLength < 8 || characterLength > 128) {
+    alert("Please select a password length between 8-128!");
+    generatePassword();
+  }
 //confirm whether to include lowercase, uppercase, numeric, or special characters
+let hasLower = confirm("Will your password have lowercase characters?");
+let hasUpper = confirm("Will your password have uppercase characters?");
+let hasSpecial = confirm("Will your password have special characters?");
 //store as variable confirm("do u want __?"), store as a password option in to use in function
 //for each choice, add options to an array
-}
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
