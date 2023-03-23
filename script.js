@@ -53,9 +53,20 @@ function generatePassword() {
     if (hasSpecial === true) {
       passwordOptions = passwordOptions.concat(special);
     }
-    console.log (passwordOptions);
-
+    console.log ("this logs password options: " + passwordOptions);
+// generate random password with function, math.Random
+    for ( let i = 0; i < characterLength; i++) {
+      let passwordFinal = passwordOptions[Math.floor(Math.random()*passwordOptions.length)];
+      console.log("this logs the calculated, final password: " + passwordFinal);
+      //passwordFinal= passwordFinal.join("");
+      password.push(passwordFinal);
+      console.log("this logs the value of password: " + password);
+      //return passwordFinal.join('');
+      //return passwordFinal.join("");
+    }
+    //password.push(passwordCalc);
 }
+
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
