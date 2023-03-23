@@ -12,7 +12,9 @@ var generateBtn = document.querySelector("#generate");
 let characterLength;
 let lowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 let upperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-let numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+let numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+let special = ["!", "@", "#", "$", "%", "^", "&", "*", "_", "-", "+", "="];
+
 
 console.log(lowerCase);
 console.log(upperCase);
@@ -33,6 +35,7 @@ function generatePassword() {
 //confirm whether to include lowercase, uppercase, numeric, or special characters
 let hasLower = confirm("Will your password have lowercase characters?");
 let hasUpper = confirm("Will your password have uppercase characters?");
+let hasNumbers = confirm("Will your password have numbers?");
 let hasSpecial = confirm("Will your password have special characters?");
 //store as variable confirm("do u want __?"), store as a password option in to use in function
 //for each choice, add options to an array
