@@ -19,6 +19,7 @@ let special = ["!", "@", "#", "$", "%", "^", "&", "*", "_", "-", "+", "="];
 console.log(lowerCase);
 console.log(upperCase);
 console.log(numbers);
+console.log(special);
 
 let passwordOptions = [];
 let password = [];
@@ -32,13 +33,29 @@ function generatePassword() {
     alert("Please select a password length between 8-128!");
     generatePassword();
   }
+  console.log(characterLength);
 //confirm whether to include lowercase, uppercase, numeric, or special characters
-let hasLower = confirm("Will your password have lowercase characters?");
-let hasUpper = confirm("Will your password have uppercase characters?");
-let hasNumbers = confirm("Will your password have numbers?");
-let hasSpecial = confirm("Will your password have special characters?");
+  let hasLower = confirm("Will your password have lowercase characters?");
+  let hasUpper = confirm("Will your password have uppercase characters?");
+  let hasNumbers = confirm("Will your password have numbers?");
+  let hasSpecial = confirm("Will your password have special characters?");
 //store as variable confirm("do u want __?"), store as a password option in to use in function
 //for each choice, add options to an array
+    if (hasLower === true) {
+      passwordOptions = passwordOptions.concat(lowerCase);
+    }
+    if (hasUpper === true) {
+      passwordOptions = passwordOptions.concat(upperCase);
+    }
+    if (hasNumbers === true) {
+      passwordOptions = passwordOptions.concat(numbers);
+    }
+    if (hasSpecial === true) {
+      passwordOptions = passwordOptions.concat(special);
+    }
+    console.log (passwordOptions);
+
+}
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
