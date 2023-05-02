@@ -25,7 +25,7 @@ let passwordOptions = [];
 let password = [];
 //function to generate password
 function generatePassword() {
-  let characterLength = prompt("How many characters will your password be?")
+  let characterLength = window.prompt("How many characters will your password be?")
 //password prompts: how many characters? valid =<8,>=128
 //if => 8 || (or) x> 128, valid, ifNaN invalid
 // 128 < x or x < 8 >>> alert, please select a password length between 8 and 128 characters
@@ -35,41 +35,46 @@ function generatePassword() {
   }
   console.log(characterLength);
 //confirm whether to include lowercase, uppercase, numeric, or special characters
-  let hasLower = confirm("Will your password have lowercase characters?");
-  let hasUpper = confirm("Will your password have uppercase characters?");
-  let hasNumbers = confirm("Will your password have numbers?");
-  let hasSpecial = confirm("Will your password have special characters?");
+  let hasLower = window.confirm("Will your password have lowercase characters?");
+  let hasUpper = window.confirm("Will your password have uppercase characters?");
+  let hasNumbers = window.confirm("Will your password have numbers?");
+  let hasSpecial = window.confirm("Will your password have special characters?");
 //store as variable confirm("do u want __?"), store as a password option in to use in function
 //for each choice, add options to an array
-    if (hasLower === true) {
+    if (hasLower == true) {
       passwordOptions = passwordOptions.concat(lowerCase);
     }
-    if (hasUpper === true) {
+    if (hasUpper == true) {
       passwordOptions = passwordOptions.concat(upperCase);
     }
-    if (hasNumbers === true) {
+    if (hasNumbers == true) {
       passwordOptions = passwordOptions.concat(numbers);
     }
-    if (hasSpecial === true) {
+    if (hasSpecial == true) {
       passwordOptions = passwordOptions.concat(special);
     }
     console.log ("this logs password options: " + passwordOptions);
 // generate random password with function, math.Random
     for ( let i = 0; i < characterLength; i++) {
       let passwordFinal = passwordOptions[Math.floor(Math.random()*passwordOptions.length)];
-      console.log("this logs the calculated, final password: " + passwordFinal);
+      //console.log("this logs the calculated, final password: " + passwordFinal);
       //passwordFinal= passwordFinal.join("");
       password.push(passwordFinal);
-      console.log("this logs the value of password: " + password);
+      //console.log("this logs the value of password: " + password);
       //return passwordFinal.join('');
       //return passwordFinal.join("");
     }
+    console.log("this logs the value of password: " + password);
+    
     //password.push(passwordCalc);
 }
 
 // Write password to the #password input
 function writePassword() {
   //var password = generatePassword();
+  password.length=0;
+  passwordOptions.length=0;
+  //clear out old password to prevent building on top of the old one if generating another password
   generatePassword();
   var passwordText = document.querySelector("#password");
   console.log("this runs the value of password, outside of the function: " + password);
